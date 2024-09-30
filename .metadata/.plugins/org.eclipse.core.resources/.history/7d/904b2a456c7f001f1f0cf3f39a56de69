@@ -1,0 +1,43 @@
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+
+public class ComboBoxFilter {
+
+    public void setupFilteredComboBox(ComboBox<String> comboBox, ObservableList<String> items) {
+        comboBox.setEditable(true); // Permitir a entrada de texto no ComboBox
+        comboBox.setItems(items); // Definir a lista inicial de itens
+
+        // Obter o campo de texto do ComboBox
+        TextField comboBoxEditor = comboBox.getEditor();
+
+        // Adicionar um Listener para o campo de texto
+        comboBoxEditor.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                // Filtrar os itens com base no texto digitado
+                ObservableList<String> filteredItems = FXCollections.observableArrayList();
+                for (String item : items) {
+                    if (item.toLowerCase().contains(newValue.toLowerCase())) {
+                        filteredItems.add(item);
+                    }
+                }
+                comboBox.setItems(filteredItems);
+            } else {
+                // Se não houver texto, mostrar todos os itens
+                comboBox.setItems(items);
+            }
+
+            // Manter o que o usuário digitou no campo de texto
+            comboBoxEditor.setText(newValue);
+            comboBox.show();
+        });
+
+        // Listener para restaurar todos os itens quando o foco for perdido
+        comboBox.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) { // Quando perder o foco
+                comboBox.setItems(items); // Restaurar a lista completa
+            }
+        });
+    }
+}

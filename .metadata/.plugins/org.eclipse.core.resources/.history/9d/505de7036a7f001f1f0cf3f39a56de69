@@ -1,0 +1,180 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class MapViewExample extends Application {
+    private Graph graph = new Graph(); // Supondo que você tenha uma classe Graph implementada
+    private Map<String, Point> coordenadas = new HashMap<>(); // Armazena as coordenadas das estações
+
+    @Override
+    public void start(Stage primaryStage) {
+    	graph = new Graph();  // Instantiate the Graph
+        graph.readFromFile("grafos.txt");  // Load the graph from the file
+        graph.printGraph();
+
+        // Carregar as coordenadas a partir do arquivo
+        carregarCoordenadas("coordenadas.txt");
+
+        // Criar os campos de origem e destino
+        Label labelOrigem = new Label("Origem:");
+        ComboBox<String> comboBox1 = new ComboBox<>();
+        Label labelDestino = new Label("Destino:");
+        ComboBox<String> comboBox2 = new ComboBox<>();
+
+        // Criar a ComboBox com opções de algoritmos de busca
+        Label labelAlgoritmo = new Label("Algoritmo de Busca:");
+        ComboBox<String> comboBoxAlgoritmos = new ComboBox<>();
+        comboBoxAlgoritmos.getItems().addAll(
+                "AMPLITUDE",
+                "PROFUNDIDADE",
+                "PROFUNDIDADE LIMITADA",
+                "APROFUNDAMENTO ITERATIVO",
+                "BIDIRECIONAL"
+        );
+        comboBoxAlgoritmos.setValue("AMPLITUDE"); // Define um valor padrão
+
+        // Campo de limite para PROFUNDIDADE LIMITADA
+        Label labelLimite = new Label("Limite:");
+        TextField textFieldLimite = new TextField();
+        labelLimite.setVisible(false);  // Inicialmente oculto
+        textFieldLimite.setVisible(false);  // Inicialmente oculto
+
+        // Listener para exibir o campo limite quando "PROFUNDIDADE LIMITADA" for selecionada
+        comboBoxAlgoritmos.setOnAction(event -> {
+            String selectedAlgorithm = comboBoxAlgoritmos.getValue();
+            if ("PROFUNDIDADE LIMITADA".equals(selectedAlgorithm)) {
+                textFieldLimite.setVisible(true);
+                labelLimite.setVisible(true);
+            } else {
+                textFieldLimite.setVisible(false);
+                labelLimite.setVisible(false);
+            }
+        });
+
+        // Canvas para desenhar
+        Canvas canvas = new Canvas(1024, 763);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+
+        // Botão "Executar"
+        Button buttonExecutar = new Button("Executar");
+        buttonExecutar.setOnAction(event -> {
+            // Obter os valores de origem e destino
+            String start = textFieldOrigem.getText();
+            String target = textFieldDestino.getText();
+
+            // Verificar qual algoritmo foi selecionado
+            String selectedAlgorithm = comboBoxAlgoritmos.getValue();
+            List<String> path = null;
+
+            switch (selectedAlgorithm) {
+                case "AMPLITUDE":
+                    path = graph.bfs(start, target); // Busca em Largura
+                    break;
+                case "PROFUNDIDADE":
+                    path = graph.dfs(start, target); // Busca em Profundidade
+                    break;
+                case "PROFUNDIDADE LIMITADA":
+                    int limite = Integer.parseInt(textFieldLimite.getText()); // Obter o limite
+                    path = graph.dls(start, target, limite); // Busca em Profundidade Limitada
+                    break;
+                case "APROFUNDAMENTO ITERATIVO":
+                    path = graph.iddfs(start, target, 80); // Aprofundamento Iterativo
+                    break;
+                case "BIDIRECIONAL":
+                    path = graph.bidirectionalBFS(start, target); // Busca Bidirecional
+                    break;
+            }
+            
+            carregarCoordenadas("coordenadas.txt");
+
+            // Limpar o canvas antes de desenhar
+            gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
+            // Desenhar bolas vermelhas para cada estação no caminho
+            if (path != null) {
+                for (String station : path) {
+                    Point point = coordenadas.get(station);
+                    if (point != null) {
+                        gc.setFill(javafx.scene.paint.Color.CRIMSON);
+                        gc.fillOval(point.x, point.y, 10, 10); // Desenhar uma bola vermelha de 10x10
+                    }
+                }
+            }
+        });
+
+        // Agrupar os campos de origem, destino, algoritmo, limite e o botão "Executar" em um VBox
+        VBox vboxForm = new VBox(10, labelOrigem, textFieldOrigem, labelDestino, textFieldDestino, labelAlgoritmo, comboBoxAlgoritmos, labelLimite, textFieldLimite, buttonExecutar);
+        vboxForm.setPadding(new Insets(10));
+
+        // Carregar a imagem do mapa
+        Image mapImage = new Image("file:src/mapa.png"); // Substitua pelo caminho correto
+        ImageView imageView = new ImageView(mapImage);
+        imageView.setFitWidth(1024);
+        imageView.setFitHeight(763);
+        imageView.setPreserveRatio(true);
+
+        // Agrupar a imagem do mapa e o canvas em um Pane para sobreposição
+        Pane pane = new Pane(imageView, canvas);
+
+        // Adicionar os elementos em um HBox
+        HBox root = new HBox(20, vboxForm, pane);
+        root.setPadding(new Insets(20));
+
+        // Configurar a cena e mostrar a janela
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("Mapa de Algoritmos de Busca");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    // Classe Point para armazenar coordenadas x, y
+    class Point {
+        int x, y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    // Função para carregar as coordenadas do arquivo "coordenadas.txt"
+    private void carregarCoordenadas(String fileName) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 3) {
+                    String nome = parts[0].trim();
+                    int x = Integer.parseInt(parts[1].trim());
+                    int y = Integer.parseInt(parts[2].trim());
+                    coordenadas.put(nome, new Point(x, y));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}

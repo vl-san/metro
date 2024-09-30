@@ -1,0 +1,176 @@
+tucuruvi,497,127
+parada inglesa,497,142
+jardim sao paulo-ayrton senna,497,157
+santana,497,172
+carandiru,497,187
+portuguesa-tiete,497,202
+armenia,497,217
+tiradentes,497,232
+luz,497,277
+sao bento,497,322
+se,497,340
+liberdade,497,382
+sao joaquim,497,417
+vergueiro,497,452
+paraiso,491,482
+ana rosa,492,505
+vila mariana,497,530
+santa cruz,503,550
+praca da arvore,497,565
+saude,497,582
+sao judas,497,597
+conceicao,497,612
+jabaquara,497,631
+vila prudente,695,417
+tamanduatei,685,437
+sacoma,652,467
+alto do ipiranga,623,495
+santos-imigrantes,571,518
+chacara klabin,540,522
+brigadeiro,463,461
+trianon-masp,441,437
+consolacao,396,399
+clinicas,381,378
+sumare,365,362
+vila madalena,350,345
+corinthians-itaquera,765,309
+artur alvim,748,314
+patriarca-vila re,728,314
+guilhermina-esperanca,710,314
+vila matilde,690,314
+penha,670,314
+carrao,650,314
+tatuape,627,304
+belem,609,314
+bresser-mooca,593,314
+bras,565,308
+pedro ii,539,336
+anhangabau,478,337
+republica,452,333
+santa cecilia,440,316
+marechal deodoro,429,306
+palmeiras-barra funda,416,283
+vila sonia,153,415
+sao paulo-morumbi,181,415
+butanta,212,415
+pinheiros,280,410
+faria lima,313,415
+fradique coutinho,342,415
+oscar freire,372,415
+paulista,396,400
+higienopolis-mackenzie,425,365
+capao redondo,150,605
+campo limpo,180,605
+vila das belezas,211,605
+giovanni gronchi,242,605
+santo amaro,275,609
+largo treze,300,605
+adolfo pinheiro,320,605
+alto da boa vista,342,605
+borba gato,362,605
+brooklin,381,605
+campo belo,408,605
+eucaliptos,427,600
+moema,442,582
+aacd-servidor,458,568
+hospital sao paulo,475,551
+jundiai,165,50
+varzea paulista,216,50
+campo limpo paulista,263,50
+botujuru,284,69
+francisco morato,298,85
+baltazar fidelis,317,105
+franco da rocha,317,120
+caieiras,317,135
+perus,317,151
+vila aurora,317,167
+jaragua,317,184
+vila clarice,317,200
+pirituba,317,216
+piqueri,317,231
+lapa7,367,271
+agua branca,391,271
+amador bueno,32,284
+santa rita,54,284
+itapevi,76,295
+eng cardoso,90,295
+sagrado coracao,105,295
+jandira,118,295
+jardim silveira,132,295
+jardim belval,147,295
+barueri,160,295
+antonio joao,172,295
+santa terezinha,186,295
+carapicuiba,198,295
+gen miguel costa,212,295
+quitauna,225,295
+com sampaio,239,295
+osasco,252,300
+pres altino,270,300
+imperatriz leopoldina,322,282
+domingos de moraes,350,282
+lapa8,377,282
+julio prestes,438,282
+mendes-vila natal,278,720
+grajau,284,705
+primavera-interlagos,278,692
+autodromo,278,680
+jurubatuba,278,666
+socorro,278,652
+joao dias,278,585
+granja julieta,278,562
+morumbi,278,537
+berrini,278,512
+vila olimpia,278,487
+cidade jardim,278,462
+hebraica-reboucas,278,435
+cidade universitaria,278,380
+vila-lobos-jaguare,278,356
+ceasa,278,330
+rio grande da serra,856,604
+ribeirao pires,837,585
+guapituba,821,568
+maua,808,556
+capuava,794,542
+santo andre,768,523
+prefeito saladino,750,498
+utinga,729,476
+sao caetano do sul,712,460
+ipiranga,647,395
+juventus-mooca,616,363
+estudantes,950,270
+mogi das cruzes,933,270
+braz cubas,920,270
+jundiapeba,907,270
+suzano,893,270
+poa,862,283
+ferraz de vasconcelos,849,295
+antonio gianetti neto,840,303
+guaianases,820,303
+jose bonifacio,808,303
+dom bosco,790,303
+corinthians itaquera,765,308
+calmon viana,872,265
+aracare,853,256
+itaquaquecetuba,843,243
+eng manoel feio,828,235
+jardim romano,808,235
+itaim paulista,788,235
+jardim helena-vila mara,767,235
+sao miguel paulista,745,235
+comendador ermelino,725,235
+usp leste,705,235
+eng goulart,663,259
+aeroporto-guarulhos,808,22
+guarulhos-cecap,808,61
+jardim colonial,895,413
+sao mateus,868,418
+fazenda da juta,847,413
+sapopemba,828,413
+jd planalto,810,413
+vila uniao,792,413
+vila tolstoi,772,413
+camilo haddad,755,413
+sao lucas,736,413
+oratorio,718,413
+vila prudente,695,417

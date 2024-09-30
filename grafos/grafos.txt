@@ -1,0 +1,198 @@
+tucuruvi, parada inglesa
+parada inglesa, tucuruvi, jardim sao paulo-ayrton senna
+jardim sao paulo-ayrton senna, parada inglesa, santana
+santana, jardim sao paulo-ayrton senna, carandiru
+carandiru, santana, portuguesa-tiete
+portuguesa-tiete, carandiru, armenia
+armenia, portuguesa-tiete, tiradentes
+tiradentes, armenia, luz
+luz, tiradentes, sao bento, palmeiras-barra funda, bras, republica
+sao bento, luz, se
+se, sao bento, liberdade, anhangabau, pedro ii
+liberdade, se, sao joaquim
+sao joaquim, liberdade, vergueiro
+vergueiro, sao joaquim, paraiso
+paraiso, vergueiro, ana rosa, brigadeiro
+ana rosa, paraiso, vila mariana, chacara klabin
+vila mariana, ana rosa, santa cruz
+santa cruz, vila mariana, praca da arvore, chacara klabin, hospital sao paulo
+praca da arvore, santa cruz, saude
+saude, praca da arvore, sao judas
+sao judas, saude, conceicao
+conceicao, sao judas, jabaquara
+jabaquara, conceicao
+vila prudente, tamanduatei
+tamanduatei, vila prudente, sacoma, ipiranga, sao caetano do sul
+sacoma, tamanduatei, alto do ipiranga
+alto do ipiranga, sacoma, santos-imigrantes
+santos-imigrantes, alto do ipiranga, chacara klabin
+chacara klabin, santos-imigrantes, ana rosa, santa cruz
+ana rosa, chacara klabin, paraiso, vila mariana
+paraiso, ana rosa, brigadeiro, vergueiro
+brigadeiro, paraiso, trianon-masp
+trianon-masp, brigadeiro, consolacao
+consolacao, trianon-masp, clinicas, paulista, higienopolis-mackenzie
+clinicas, consolacao, sumare
+sumare, clinicas, vila madalena
+vila madalena, sumare
+corinthians-itaquera, artur alvim, dom bosco, tatuape
+artur alvim, corinthians-itaquera, patriarca-vila re
+patriarca-vila re, artur alvim, guilhermina-esperanca
+guilhermina-esperanca, patriarca-vila re, vila matilde
+vila matilde, guilhermina-esperanca, penha
+penha, vila matilde, carrao-assai atacadista
+carrao, penha, tatuape
+tatuape, carrao, belem, corinthians-itaquera, bras, eng goulart
+belem, tatuape, bresser-mooca
+bresser-mooca, belem, bras
+bras, bresser-mooca, pedro ii, tatuape, luz, juventus-mooca
+pedro ii, bras, se
+se, pedro ii, anhangabau, sao bento, japao-liberdade
+anhangabau, se, republica
+republica, anhangabau, santa cecilia, luz, higienopolis-mackenzie
+santa cecilia, republica, marechal deodoro
+marechal deodoro, santa cecilia, palmeiras-barra funda
+palmeiras-barra funda, marechal deodoro, luz, agua branca, lapa8, julio prestes
+vila sonia, sao paulo-morumbi
+sao paulo-morumbi, vila sonia, butanta
+butanta, sao paulo-morumbi, pinheiros
+pinheiros, butanta, faria lima, cidade universitaria, hebraica-reboucas
+faria lima, pinheiros, fradique coutinho
+fradique coutinho, faria lima, oscar freire
+oscar freire, fradique coutinho, paulista
+paulista, oscar freire, higienopolis-mackenzie, clinicas, consolacao
+higienopolis-mackenzie, paulista, republica
+republica, higienopolis-mackenzie, luz, santa cecilia, anhangabau
+luz, republica, sao bento, palmeiras-barra funda, tiradentes, bras
+capao redondo, campo limpo
+campo limpo, capao redondo, vila das belezas
+vila das belezas, campo limpo, giovanni gronchi
+giovanni gronchi, vila das belezas, santo amaro
+santo amaro, giovanni gronchi, largo treze, joao dias, socorro
+largo treze, santo amaro, adolfo pinheiro
+adolfo pinheiro, largo treze, alto da boa vista
+alto da boa vista, adolfo pinheiro, borba gato
+borba gato, alto da boa vista, brooklin
+brooklin, borba gato, campo belo
+campo belo, brooklin, eucaliptos
+eucaliptos, campo belo, moema
+moema, eucaliptos, aacd-servidor
+aacd-servidor, moema, hospital sao paulo
+hospital sao paulo, aacd-servidor, santa cruz
+santa cruz, hospital sao paulo, chacara klabin, vila mariana, praca da arvore
+chácara klabin, santa cruz
+jundiai, varzea paulista
+varzea paulista, jundiai, campo limpo paulista
+campo limpo paulista, varzea paulista, botujuru
+botujuru, campo limpo paulista, francisco morato
+francisco morato, botujuru, baltazar fidelis
+baltazar fidelis, francisco morato, franco da rocha
+franco da rocha, baltazar fidelis, caieiras
+caieiras, franco da rocha, perus
+perus, caieiras, vila aurora
+vila aurora, perus, jaragua
+jaragua, vila aurora, vila clarice
+vila clarice, jaragua, pirituba
+pirituba, vila clarice, piqueri
+piqueri, pirituba, lapa7
+lapa7, piqueri, agua branca
+agua branca, lapa7, palmeiras-barra funda
+palmeiras-barra funda, agua branca, luz, julio prestes, marechal deodoro, lapa8
+amador bueno, santa rita
+santa rita, amador bueno, itapevi
+itapevi, santa rita, eng cardoso
+eng cardoso, itapevi, sagrado coracao
+sagrado coracao, eng cardoso, jandira
+jandira, sagrado coracao, jardim silveira
+jardim silveira, jandira, jardim belval
+jardim belval, jardim silveira, barueri
+barueri, jardim belval, antonio joao
+antonio joao, barueri, santa terezinha
+santa terezinha, antonio joao, carapicuiba
+carapicuiba, santa terezinha, gen miguel costa
+gen miguel costa, carapicuiba, quitauna
+quitauna, gen miguel costa, com sampaio
+com sampaio, quitauna, osasco
+osasco, com sampaio, pres altino
+pres altino, osasco, imperatriz leopoldina, ceasa
+imperatriz leopoldina, pres altino, domingos de moraes
+domingos de moraes, imperatriz leopoldina, lapa8
+lapa8, domingos de moraes, palmeiras-barra funda
+palmeiras-barra funda, agua branca, luz, julio prestes, marechal deodoro, lapa8
+mendes-vila natal, grajau
+grajau, mendes-vila natal, primavera-interlagos
+primavera-interlagos, grajau, autodromo
+autodromo, primavera-interlagos, jurubatuba
+jurubatuba, autodromo, socorro
+socorro, jurubatuba, santo amaro
+santo amaro, socorro, joao dias, giovanni gronchi, largo treze
+joao dias, santo amaro, granja julieta
+granja julieta, joão dias, morumbi
+morumbi, granja julieta, berrini
+berrini, morumbi, vila olimpia
+vila olimpia, berrini, cidade jardim
+cidade jardim, vila olimpia, hebraica-reboucas
+hebraica-reboucas, cidade jardim, pinheiros
+pinheiros, hebraica-reboucas, cidade universitaria, butanta, faria lima
+cidade universitaria, pinheiros, vila-lobos-jaguare
+vila-lobos-jaguare, cidade universitaria, ceasa
+ceasa, vila-lobos-jaguare, pres altino
+pres altino, ceasa, osasco, imperatriz leopldina
+osasco, pres altino, com sampaio
+rio grande da serra, ribeirao pires
+ribeirao pires, rio grande da serra, guapituba
+guapituba, ribeirao pires, maua
+maua, guapituba, capuava
+capuava, maua, santo andre
+santo andre, capuava, prefeito saladino
+prefeito saladino, santo andre, utinga
+utinga, prefeito saladino, sao caetano do sul
+sao caetano do sul, utinga, tamanduatei
+tamanduatei, sao caetano do sul, ipiranga, vila prudente, sacoma
+ipiranga, tamanduatei, juventus-mooca
+juventus-mooca, ipiranga, bras
+bras, bresser-mooca, pedro ii, tatuape, luz, juventus-mooca
+luz, republica, sao bento, palmeiras-barra funda, tiradentes, bras
+estudantes, mogi das cruzes
+mogi das cruzes, estudantes, braz cubas
+braz cubas, mogi das cruzes, jundiapeba
+jundiapeba, braz cubas, suzano
+suzano, jundiapeba, calmon viana
+calmon viana, suzano, poa
+poa, calmon viana, ferraz de vasconcelos
+ferraz de vasconcelos, poa, antonio gianetti neto
+antonio gianetti neto, ferraz de vasconcelos, guaianases
+guaianases, antonio gianetti neto, jose bonifacio
+jose bonifacio, guaianases, dom bosco
+dom bosco, jose bonifacio, corinthians itaquera
+corinthians itaquera, dom bosco, tatuape
+tatuape, corinthians itaquera, bras
+bras, tatuape, luz
+luz, bras
+calmon viana, aracare
+aracare, calmon viana, itaquaquecetuba
+itaquaquecetuba, aracar, eng manoel feio
+eng manoel feio, itaquaquecetuba, jardim romano
+jardim romano, eng manoel feio, itaim paulista
+itaim paulista, jardim romano, jardim helena-vila mara
+jardim helena-vila mara, itaim paulista, sao miguel paulista
+sao miguel paulista, jardim helena-vila mara, comendador ermelino
+comendador ermelino, sao miguel paulista, usp leste
+usp leste, comendador ermelino, eng goulart
+eng goulart, usp leste, tatuape
+tatuape, eng goulart, bras
+bras, tatuape
+aeroporto-guarulhos,guarulhos-cecap
+guarulhos-cecap, aeroporto-guarulhos,eng goulart
+eng goulart, guarulhos-cecap, usp leste, tatuape
+jardim colonial, sao mateus
+sao mateus, jardim colonial, fazenda da juta
+fazenda da juta, sao mateus, sapopemba
+sapopemba, fazenda da juta, jd planalto
+jd planalto, sapopemba, vila uniao
+vila uniao,jd planalto,vila tolstoi
+vila tolstoi, vila uniao, camilo haddad
+camilo haddad, vila tolstoi, sao lucas
+sao lucas, camilo haddad, oratorio
+oratorio, sao lucas, vila prudente
+vila prudente, oratorio, tamanduatei

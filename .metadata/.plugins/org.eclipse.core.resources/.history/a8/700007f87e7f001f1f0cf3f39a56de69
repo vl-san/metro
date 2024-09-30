@@ -1,0 +1,270 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+
+public class Graph {
+
+    private Map<String, Set<String>> adjList;
+
+    public Graph() {
+        adjList = new HashMap<>();
+    }
+
+    // Adicionar vértices
+    public void addVertex(String vertex) {
+        adjList.putIfAbsent(vertex, new HashSet<>());
+    }
+
+    // Adicionar arestas
+    public void addEdge(String source, String destination) {
+        addVertex(source);
+        adjList.get(source).add(destination); // HashSet impede duplicatas
+    }
+
+    // Impressão da lista de adjacências
+    public void printGraph() {
+        for (String node : adjList.keySet()) {
+            System.out.println("Nó " + node + " está conectado a " + adjList.get(node));
+        }
+    }
+    
+    // Ler arquivo .txt e adicionar vértices e arestas ao grafo
+    public void readFromFile(String fileName) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(","); // Dividindo por vírgulas
+                String vertex = parts[0].trim();  // Primeiro elemento é o vértice
+                addVertex(vertex);
+                for (int i = 1; i < parts.length; i++) {
+                    String destination = parts[i].trim();
+                    addEdge(vertex, destination);  // Adicionando arestas
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+        }
+    }
+    
+    // Breadth-First Search (BFS) - Amplitude
+    public List<String> bfs(String startVertex, String targetVertex) {
+        Set<String> visited = new HashSet<>();
+        Queue<String> queue = new LinkedList<>();
+        List<String> path = new ArrayList<>();
+        Map<String, String> predecessors = new HashMap<>();
+        int cost = 0;
+
+        visited.add(startVertex);
+        queue.add(startVertex);
+
+        while (!queue.isEmpty()) {
+            String vertex = queue.poll();
+
+            if (vertex.equals(targetVertex)) {
+                String current = targetVertex;
+                while (current != null) {
+                    path.add(0, current); // Adiciona no início da lista
+                    current = predecessors.get(current); // Move para o predecessor
+                }
+                return path;
+            }
+
+            Set<String> neighbors = adjList.get(vertex);
+            if (neighbors != null) {
+                for (String adj : neighbors) {
+                    if (!visited.contains(adj)) {
+                        visited.add(adj);
+                        queue.add(adj);
+                        predecessors.put(adj, vertex); // Armazena o predecessor
+                    }
+                }
+            }
+        }
+        System.out.println("\nVértice não encontrado: " + targetVertex);
+        return path;
+    }
+
+    // Depth-First Search (DFS) - Profundidade
+    public List<String> dfs(String startVertex, String targetVertex) {
+        Set<String> visited = new HashSet<>();
+        List<String> path = new ArrayList<>();
+        
+        if (dfsRecursive(startVertex, targetVertex, visited, path)) {
+            return path; // Retorna o caminho encontrado
+        }
+        return new ArrayList<>(); // Retorna lista vazia se não encontrar o caminho
+    }
+
+    private boolean dfsRecursive(String currentVertex, String targetVertex, Set<String> visited, List<String> path) {
+        visited.add(currentVertex);
+        path.add(currentVertex);
+
+        if (currentVertex.equals(targetVertex)) {
+            return true; // Se encontrou o alvo, retorna true
+        }
+
+        // Percorre os adjacentes
+        for (String adj : adjList.getOrDefault(currentVertex, new HashSet<>())) {
+            if (!visited.contains(adj)) {
+                if (dfsRecursive(adj, targetVertex, visited, path)) {
+                    return true; // Se encontrou o alvo, retorna true
+                }
+            }
+        }
+        
+        // Se não encontrou o alvo, remove o nó do caminho e retorna false
+        path.remove(path.size() - 1);
+        return false;
+    }
+    
+    // Depth-Limited Search (DLS) - Profundidade limitada
+    public List<String> dls(String startVertex, String targetVertex, int depthLimit) {
+        Set<String> visited = new HashSet<>();
+        List<String> path = new ArrayList<>();
+        
+        if (dlsRecursive(startVertex, targetVertex, visited, path, 0, depthLimit)) {
+            return path; // Retorna o caminho encontrado
+        }
+        return new ArrayList<>(); // Retorna lista vazia se não encontrar o caminho
+    }
+
+    private boolean dlsRecursive(String currentVertex, String targetVertex, Set<String> visited, List<String> path, int currentDepth, int depthLimit) {
+        visited.add(currentVertex);
+        path.add(currentVertex);
+
+        if (currentVertex.equals(targetVertex)) {
+            return true; // Se encontrou o alvo, retorna true
+        }
+
+        // Se o limite de profundidade foi atingido, interrompe a busca
+        if (currentDepth >= depthLimit) {
+            path.remove(path.size() - 1);
+            return false;
+        }
+
+        // Percorre os adjacentes
+        for (String adj : adjList.getOrDefault(currentVertex, new HashSet<>())) {
+            if (!visited.contains(adj)) {
+                if (dlsRecursive(adj, targetVertex, visited, path, currentDepth + 1, depthLimit)) {
+                    return true; // Se encontrou o alvo, retorna true
+                }
+            }
+        }
+        
+        // Se não encontrou o alvo, remove o nó do caminho e retorna false
+        path.remove(path.size() - 1);
+        return false;
+    }
+
+    // Iterative Deepening Depth-First Search (IDDFS) - Aprofundamento iterativo
+    public List<String> iddfs(String startVertex, String targetVertex, int maxDepth, int increment) {
+        for (int depth = 0; depth <= maxDepth; depth+=increment) {
+            // Executa DLS
+            List<String> path = dls(startVertex, targetVertex, depth);
+            if (!path.isEmpty()) {
+                return path; // Retorna o caminho encontrado
+            }
+        }
+        return new ArrayList<>(); // Retorna lista vazia se não encontrar o caminho
+    }
+
+
+    // Bidirectional Search (BS) - Busca bidirecional
+    public List<String> bidirectionalBFS(String startVertex, String targetVertex) {
+        if (startVertex.equals(targetVertex)) {
+            return Arrays.asList(startVertex); // Se o início e o fim forem o mesmo
+        }
+
+        // Conjuntos de visitados para ambas as buscas
+        Set<String> visitedFromStart = new HashSet<>();
+        Set<String> visitedFromTarget = new HashSet<>();
+        
+        // Filas para as duas BFS
+        Queue<String> queueFromStart = new LinkedList<>();
+        Queue<String> queueFromTarget = new LinkedList<>();
+        
+        // Mapas de predecessores para reconstruir o caminho
+        Map<String, String> predFromStart = new HashMap<>();
+        Map<String, String> predFromTarget = new HashMap<>();
+
+        // Inicializa BFS a partir do início
+        visitedFromStart.add(startVertex);
+        queueFromStart.add(startVertex);
+        predFromStart.put(startVertex, null);
+
+        // Inicializa BFS a partir do destino
+        visitedFromTarget.add(targetVertex);
+        queueFromTarget.add(targetVertex);
+        predFromTarget.put(targetVertex, null);
+
+        while (!queueFromStart.isEmpty() && !queueFromTarget.isEmpty()) {
+            // Expande BFS a partir do início
+            String meetPoint = bfsStep(queueFromStart, visitedFromStart, visitedFromTarget, predFromStart);
+            if (meetPoint != null) {
+                return buildPath(meetPoint, predFromStart, predFromTarget); // Caminho encontrado
+            }
+
+            // Expande BFS a partir do destino
+            meetPoint = bfsStep(queueFromTarget, visitedFromTarget, visitedFromStart, predFromTarget);
+            if (meetPoint != null) {
+                return buildPath(meetPoint, predFromStart, predFromTarget); // Caminho encontrado
+            }
+        }
+
+        return new ArrayList<>(); // Retorna vazio se não encontrar caminho
+    }
+
+    // Função auxiliar para executar um passo da BFS
+    private String bfsStep(Queue<String> queue, Set<String> visitedThisSide, Set<String> visitedOtherSide, Map<String, String> predThisSide) {
+        if (!queue.isEmpty()) {
+            String currentVertex = queue.poll();
+            Set<String> neighbors = adjList.get(currentVertex);
+            if (neighbors != null) {
+                for (String neighbor : neighbors) {
+                    if (!visitedThisSide.contains(neighbor)) {
+                        visitedThisSide.add(neighbor);
+                        predThisSide.put(neighbor, currentVertex);
+                        queue.add(neighbor);
+
+                        // Se o vértice já foi visitado pelo outro lado, encontramos o ponto de encontro
+                        if (visitedOtherSide.contains(neighbor)) {
+                            return neighbor;
+                        }
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    // Função para reconstruir o caminho a partir dos predecessores
+    private List<String> buildPath(String meetPoint, Map<String, String> predFromStart, Map<String, String> predFromTarget) {
+        List<String> path = new ArrayList<>();
+
+        // Caminho do início até o ponto de encontro
+        String current = meetPoint;
+        while (current != null) {
+            path.add(0, current); // Adiciona no início da lista
+            current = predFromStart.get(current);
+        }
+
+        // Caminho do ponto de encontro até o destino
+        current = predFromTarget.get(meetPoint);
+        while (current != null) {
+            path.add(current); // Adiciona no final da lista
+            current = predFromTarget.get(current);
+        }
+
+        return path;
+    }
+
+}

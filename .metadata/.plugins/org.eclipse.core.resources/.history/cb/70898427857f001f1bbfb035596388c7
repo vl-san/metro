@@ -1,0 +1,101 @@
+import java.io.File;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        Graph graph = new Graph();
+
+        graph.readFromFile("grafos.txt");  // Substitua pelo nome do arquivo .txt
+        //graph.printGraph();
+        
+        String start = "tucuruvi";
+        String target = "jabaquara";
+        
+        System.out.println("\nBFS:");
+        List<String> pathbfs = graph.bfs(start, target);
+        if (!pathbfs.isEmpty()) {
+            System.out.println("Caminho encontrado de " + start + " até " + target + ": " + pathbfs + "\nCusto: ");
+        } else {
+            System.out.println("Caminho não encontrado de " + start + " até " + target);
+        }
+    
+        System.out.println("\nDFS:");
+        List<String> pathdfs = graph.dfs(start, target);
+        if (!pathdfs.isEmpty()) {
+            System.out.println("Caminho encontrado de " + start + " até " + target + ": " + pathdfs);
+        } else {
+            System.out.println("Caminho não encontrado de " + start + " até " + target);
+        }
+        
+        System.out.println("\nDLS:");
+        List<String> pathdls = graph.dls(start, target, 80);
+        if (!pathdfs.isEmpty()) {
+            System.out.println("Caminho encontrado de " + start + " até " + target + ": " + pathdls);
+        } else {
+            System.out.println("Caminho não encontrado de " + start + " até " + target);
+        }
+        
+        System.out.println("\nIDDFS:");
+        List<String> pathiddfs = graph.iddfs(start, target, 80, 1);
+        if (!pathdfs.isEmpty()) {
+            System.out.println("Caminho encontrado de " + start + " até " + target + ": " + pathiddfs);
+        } else {
+            System.out.println("Caminho não encontrado de " + start + " até " + target);
+        }
+        
+        System.out.println("\nBS:");
+        List<String> pathBS = graph.bidirectionalBFS(start, target);
+        if (!pathdfs.isEmpty()) {
+            System.out.println("Caminho encontrado de " + start + " até " + target + ": " + pathBS);
+        } else {
+            System.out.println("Caminho não encontrado de " + start + " até " + target);
+        }
+        
+/*
+        // Adicionando vértices
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+        graph.addVertex("D");
+        graph.addVertex("E");
+        graph.addVertex("F");
+        graph.addVertex("G");
+        graph.addVertex("H");
+        graph.addVertex("I");
+        graph.addVertex("J");
+
+        // Adicionando arestas
+        graph.addEdge("A", "B");
+        graph.addEdge("A", "J");
+
+        graph.addEdge("B", "A");
+        graph.addEdge("B", "C");
+        graph.addEdge("B", "D");
+
+        graph.addEdge("C", "B");
+        graph.addEdge("C", "E");
+
+        graph.addEdge("D", "B");
+        graph.addEdge("D", "E");
+        graph.addEdge("D", "H");
+
+        graph.addEdge("E", "C");
+        graph.addEdge("E", "D");
+        graph.addEdge("E", "F");
+
+        graph.addEdge("F", "E");
+        graph.addEdge("F", "G");
+
+        graph.addEdge("G", "F");
+
+        graph.addEdge("H", "D");
+        graph.addEdge("H", "I");
+
+        graph.addEdge("I", "H");
+
+        graph.addEdge("J", "A");
+
+        
+*/
+    }
+}
