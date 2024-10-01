@@ -1,4 +1,5 @@
 Projeto desenvolvido em java 17.  
+IDE utilizada: Eclipse IDE for Java Developers - 2023-12.
 A interface gráfica do projeto foi desenvolvida utilizando a biblioteca JavaFX.  
 Essa versão do projeto já vem com a biblioteca do JavaFX baixada, porém requer configurar:
 --------------------------------------------------------------------------------------------------------------
