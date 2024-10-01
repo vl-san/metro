@@ -17,11 +17,6 @@ Selecione o nome do seu projeto em Java Application.
 Na aba Arguments, em VM arguments, adicione o caminho relativo para o module-path.
 Supondo que o SDK esteja na pasta libs/javafx-sdk/lib dentro do projeto, o comando ficaria assim:
 --module-path libs/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml
-
-
-
-
-
-
-
+--------------------------------------------------------------------------------------------------------------
+Link para download do JavaFX caso necessário:
 https://gluonhq.com/products/javafx/
